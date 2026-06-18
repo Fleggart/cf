@@ -3,16 +3,17 @@ package tk.zeitheron.botanicadds.flowers;
 import tk.zeitheron.botanicadds.flowers.base.Flower;
 import tk.zeitheron.botanicadds.flowers.base.SubTilePassiveGen;
 import tk.zeitheron.botanicadds.init.LexiconBA;
+import tk.zeitheron.botanicadds.utils.WorldUtil;
 
 import vazkii.botania.api.lexicon.LexiconEntry;
 
-@Flower("rain_flower")
-public class RainFlower extends SubTilePassiveGen
+@Flower("snow_flower")
+public class SnowFlower extends SubTilePassiveGen
 {
 	@Override
 	public void generateMana()
 	{
-		if(getWorld().isRainingAt(getPos()))
+		if(WorldUtil.isSnowingAt(getWorld(), getPos()))
 		{
 			int delay = getDelayBetweenPassiveGeneration();
 			if(delay > 0 && ticksExisted % delay == 0 && !supertile.getWorld().isRemote)
@@ -45,12 +46,12 @@ public class RainFlower extends SubTilePassiveGen
 	@Override
 	public int getColor()
 	{
-		return 0x059CFF;
+		return 0x9CFFFF;
 	}
 	
 	@Override
 	public LexiconEntry getEntry()
 	{
-		return LexiconBA.rain_flower;
+		return LexiconBA.snow_flower;
 	}
 }
