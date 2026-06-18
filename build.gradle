@@ -57,10 +57,6 @@ repositories {
         name = "jei"
         url =  "http://dvs1.progwml6.com/files/maven"
     }
-	maven {
-		name = "HWYLA"
-		url = "http://tehnut.info/maven"
-	}
     maven {
         name = "CurseMaven"
         url = "https://cursemaven.com"
