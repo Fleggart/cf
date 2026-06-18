@@ -1,0 +1,19 @@
+#Project info
+author=Zeitheron
+start_git_commit=aa0c7cbf9ca9a917dd33f7f7571434a8a343ee21
+git_commit=https://gitlab.com/DragonForge/botanic-additions/commit/{{hash}}
+
+#Runtime info
+forge_version=14.23.5.2847
+minecraft_version=1.12.2
+mcp=stable_39
+hl_version=2.0.6.14
+jei_version=4.15.0.293
+
+#Mod info
+mod_id=botanicadds
+mod_id_fancy=BotanicAdditions
+mod_name=Botanic Additions
+mod_version=12.2.6
+cf_project=310637
+release_type=release
