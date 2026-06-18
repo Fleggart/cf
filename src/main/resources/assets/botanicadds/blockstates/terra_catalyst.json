@@ -4,13 +4,14 @@
     "normal": [{
       "model": "cube_all",
       "textures": {
-        "all": "botanicadds:blocks/dreamrock"
+        "all": "botanicadds:blocks/terra_catalyst",
+		"overlay": "botanicadds:blocks/terra_catalyst_overlay"
       }
     }],
     "inventory": [{
       "model": "cube_all",
       "textures": {
-        "all": "botanicadds:blocks/dreamrock"
+        "all": "botanicadds:blocks/terra_catalyst"
       }
     }]
   }
