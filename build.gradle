@@ -15,11 +15,6 @@ buildscript {
     }
 }
 
-plugins {
-    id 'com.matthewprenger.cursegradle' version '1.1.0'
-	id 'se.bjurr.gitchangelog.git-changelog-gradle-plugin' version '1.56'
-}
-
 apply plugin: 'net.minecraftforge.gradle.forge'
 
 ext.configFile = file "build.txt"
@@ -120,29 +115,6 @@ artifacts {
 	archives srcJar
 }
 
-curseforge {
-	apiKey = System.env.CURSEFORGE_API_KEY != null ? System.env.CURSEFORGE_API_KEY : '0'
-	project {
-		id = "${config.cf_project}"
-		changelogType = 'html'
-		changelog = file('changelog.html')
-		releaseType = "${config.release_type}"
-		addGameVersion "${config.minecraft_version}"
-		mainArtifact(jar) {
-		  displayName = "[${config.minecraft_version}] ${config.mod_name} - ${config.mod_version}"
-		}
-		addArtifact(deobfJar) {
-		  displayName = "[${config.minecraft_version}] ${config.mod_name} (Deobfuscated) - ${config.mod_version}"
-		}
-		addArtifact(srcJar) {
-		  displayName = "[${config.minecraft_version}] ${config.mod_name} (Sources) - ${config.mod_version}"
-		}
-		relations {
-            requiredLibrary 'Hammer-Lib'
-        }
-	}
-}
-
 task signJar(type: SignJar, dependsOn: reobfJar) {
     onlyIf {
         System.env.MC_KS_PASS != null
@@ -179,32 +151,6 @@ task signSrcJar(type: SignJar, dependsOn: srcJar) {
     outputFile = srcJar.archivePath
 }
 
-task makeChangelog(type: se.bjurr.gitchangelog.plugin.gradle.GitChangelogTask) {
-    file = new File("changelog.html")
-    untaggedName = "Version ${project.version}"
-    fromCommit = "${config.start_git_commit}"
-    toRef =  "HEAD"
-    gitHubIssuePattern = "nonada123";
-    templateContent = """
-{{#tags}}
-<h1>Changes:</h1>
-  <ul>
-    {{#commits}}
-    <li><a href="${config.git_commit}" target=_blank> {{{message}}}</a></li>
-    {{/commits}}
-  </ul>
-{{/tags}}
-"""
-}
-
 build.dependsOn signJar
 build.dependsOn signDeobfJar
 build.dependsOn signSrcJar
-tasks.build.dependsOn makeChangelog
-
-afterEvaluate {
-	tasks["curseforge${config.cf_project}"].dependsOn.add(signJar)
-	tasks["curseforge${config.cf_project}"].dependsOn.add(signDeobfJar)
-	tasks["curseforge${config.cf_project}"].dependsOn.add(signSrcJar)
-	tasks["curseforge${config.cf_project}"].dependsOn.add(makeChangelog)
-}
