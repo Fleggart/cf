@@ -61,11 +61,15 @@ repositories {
 		name = "HWYLA"
 		url = "http://tehnut.info/maven"
 	}
+    maven {
+        name = "CurseMaven"
+        url = "https://cursemaven.com"
+    }
 }
 
 dependencies {
-	deobfCompile "tk.zeitheron.HammerLib:HammerLib-${config.minecraft_version}:${config.hl_version}:deobf"
-	deobfCompile "mcp.mobius.waila:Hwyla:1.8.24-B39_1.12"
+	deobfCompile "curse.maven:hammerlib-247401:6348753" 
+	deobfCompile "curse.maven:hwyla-253449:2568751"
 	deobfCompile "com.azanor.baubles:Baubles:1.12-1.5.2"
 	
     deobfCompile "mezz.jei:jei_${config.minecraft_version}:${config.jei_version}:api"
