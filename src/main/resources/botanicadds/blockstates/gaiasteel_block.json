@@ -4,13 +4,13 @@
     "normal": [{
       "model": "cube_all",
       "textures": {
-        "all": "botanicadds:blocks/dreamrock"
+        "all": "botanicadds:blocks/gaiasteel_block"
       }
     }],
     "inventory": [{
       "model": "cube_all",
       "textures": {
-        "all": "botanicadds:blocks/dreamrock"
+        "all": "botanicadds:blocks/gaiasteel_block"
       }
     }]
   }
