@@ -107,12 +107,6 @@ public class BotanicAdditions
 		LexiconBA.init();
 	}
 
-	@EventHandler
-	public void loadComplete(FMLLoadCompleteEvent e)
-	{
-		// CraftTweaker compatibility removed
-	}
-
 	@SubscribeEvent
 	public static void registerBlocks(RegistryEvent.Register<Block> e)
 	{
