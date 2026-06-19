@@ -27,8 +27,6 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import tk.zeitheron.botanicadds.compat.crafttweaker.CraftTweakerCompat;
-import tk.zeitheron.botanicadds.compat.crafttweaker.core.ICTCompat;
 import tk.zeitheron.botanicadds.flowers.base.Flower;
 import tk.zeitheron.botanicadds.init.*;
 import tk.zeitheron.botanicadds.proxy.CommonProxy;
@@ -107,16 +105,12 @@ public class BotanicAdditions
 		ElvenTradesBA.init();
 		RecipesBA.init();
 		LexiconBA.init();
-
-		ICTCompat ictc = CraftTweakerCompat.compat();
-		if(ictc != null) ictc.init();
 	}
 
 	@EventHandler
 	public void loadComplete(FMLLoadCompleteEvent e)
 	{
-		ICTCompat ictc = CraftTweakerCompat.compat();
-		if(ictc != null) ictc.onLoadComplete();
+		// CraftTweaker compatibility removed
 	}
 
 	@SubscribeEvent
